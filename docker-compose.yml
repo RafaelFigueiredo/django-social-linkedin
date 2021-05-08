@@ -1,0 +1,15 @@
+# Dockerfile for DEV environment, to run localy
+# DO NOT use in production
+
+version: '3.3'
+
+
+services:
+  app:
+    build: .
+    entrypoint: python3 ./manage.py runserver 0.0.0.0:8000
+    ports:
+        - 8000:8000
+    volumes:
+      - ./django_cv:/app
+      - ./secrets/secrets.py:/app/django_cv/secrets.py

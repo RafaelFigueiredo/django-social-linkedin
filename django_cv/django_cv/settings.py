@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from . import secrets
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cv_app',
-    'social_django'
+    'social_django',
+    'social_login',
 ]
 
 MIDDLEWARE = [
@@ -132,8 +133,8 @@ AUTHENTICATION_BACKENDS = (
 
 # SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 
-SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '<REPLACE HEHE>'
-SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = '<REPLACE HEHE>'
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = secrets.SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = secrets.SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET
 
 # Add email to requested authorizations.
 SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_liteprofile', 'r_emailaddress']
